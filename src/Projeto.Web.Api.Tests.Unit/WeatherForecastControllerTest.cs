@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.Testing;
-using System.Net;
 using Newtonsoft.Json;
+using System.Net;
 using Xunit;
 
 namespace Projeto.Web.Api.Tests.Unit;
@@ -20,7 +20,7 @@ public sealed class WeatherForecastControllerTest
 
         //Assert
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-        
+
         var lista = JsonConvert.DeserializeObject<IEnumerable<object>>(await response.Content.ReadAsStringAsync())!;
         Assert.NotEmpty(lista);
     }

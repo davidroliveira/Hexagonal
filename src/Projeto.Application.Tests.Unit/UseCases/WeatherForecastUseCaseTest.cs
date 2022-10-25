@@ -1,5 +1,4 @@
-﻿using Projeto.Application.UseCases.Modelo;
-using Projeto.Application.UseCases.WeatherForecast;
+﻿using Projeto.Application.UseCases.WeatherForecast;
 using Xunit;
 
 namespace Projeto.Application.Tests.Unit.UseCases;
