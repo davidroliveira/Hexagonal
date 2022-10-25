@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projeto.Web.Api", "Projeto.Web.Api.csproj", "{94332407-7884-4C58-B9CD-BE5918AD9AC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projeto.Web.Api", ".\Projeto.Web.Api\Projeto.Web.Api.csproj", "{94332407-7884-4C58-B9CD-BE5918AD9AC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projeto.Application", "..\Projeto.Application\Projeto.Application.csproj", "{609D00EF-0B90-4958-A84E-354F68EF120C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projeto.Application", ".\Projeto.Application\Projeto.Application.csproj", "{609D00EF-0B90-4958-A84E-354F68EF120C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projeto.Web.Api.Tests.Unit", "..\Projeto.Web.Api.Tests.Unit\Projeto.Web.Api.Tests.Unit.csproj", "{91E8E143-E0FD-4381-B7A5-D96E504DCA36}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projeto.Web.Api.Tests.Unit", ".\Projeto.Web.Api.Tests.Unit\Projeto.Web.Api.Tests.Unit.csproj", "{91E8E143-E0FD-4381-B7A5-D96E504DCA36}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projeto.Application.Tests.Unit", "..\Projeto.Application.Tests.Unit\Projeto.Application.Tests.Unit.csproj", "{B41B35CB-C3F9-4C41-B2AF-F90F34D0A6F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projeto.Application.Tests.Unit", ".\Projeto.Application.Tests.Unit\Projeto.Application.Tests.Unit.csproj", "{B41B35CB-C3F9-4C41-B2AF-F90F34D0A6F5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
