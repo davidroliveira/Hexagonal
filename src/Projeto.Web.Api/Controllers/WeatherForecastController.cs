@@ -7,7 +7,7 @@ namespace Projeto.Web.Api.Controllers;
 
 [ApiController]
 [Route("[controller]/[action]")]
-public class WeatherForecastController : ControllerBase
+public sealed class WeatherForecastController : ControllerBase
 {
     [HttpGet]
     public async Task<IEnumerable<WeatherForecastModel>> Listar()
