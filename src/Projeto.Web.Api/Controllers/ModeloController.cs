@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Projeto.Application.UseCases.Modelo;
+using Projeto.Main;
 
 namespace Projeto.Web.Api.Controllers;
 
@@ -10,7 +11,7 @@ public sealed class ModeloController : ControllerBase
     [HttpGet]
     public async Task<string> Teste()
     {
-        var response = await new ModeloUseCase().Execute(new ModeloRequest());
+        var response = await Handler.Handle<ModeloUseCase>().Execute(new ModeloRequest());
         return response.Content;
     }
 }

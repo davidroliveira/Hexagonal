@@ -19,6 +19,6 @@ public sealed class ModeloControllerTest
 
         //Assert
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-        Assert.Equal(await response.Content.ReadAsStringAsync(), "Teste 123");
+        Assert.Equal("Teste 123", await response.Content.ReadAsStringAsync());
     }
 }
