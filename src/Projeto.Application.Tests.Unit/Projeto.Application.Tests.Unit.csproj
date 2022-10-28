@@ -25,7 +25,7 @@
     <ProjectReference Include="..\Projeto.Application\Projeto.Application.csproj" />
     <ProjectReference Include="..\Projeto.Base.Common\Projeto.Base.Common.csproj" />
     <ProjectReference Include="..\Projeto.Mapper\Projeto.Mapper.csproj" />
-    <ProjectReference Include="..\Projeto.Persistence\Projeto.Persistence.csproj" />
+    <ProjectReference Include="..\Projeto.Persistence.SqlServer\Projeto.Persistence.SqlServer.csproj" />
   </ItemGroup>
 
 </Project>

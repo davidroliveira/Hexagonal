@@ -1,6 +1,6 @@
 ﻿using Projeto.Application.UseCases.WeatherForecast;
 using Projeto.Mapper;
-using Projeto.Persistence;
+using Projeto.Persistence.SqlServer.Repositories;
 using Xunit;
 
 namespace Projeto.Application.Tests.Unit.UseCases;

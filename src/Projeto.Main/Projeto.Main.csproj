@@ -14,7 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Projeto.Application\Projeto.Application.csproj" />
     <ProjectReference Include="..\Projeto.Domain\Projeto.Domain.csproj" />
-    <ProjectReference Include="..\Projeto.Persistence\Projeto.Persistence.csproj" />
+    <ProjectReference Include="..\Projeto.Persistence.SqlServer\Projeto.Persistence.SqlServer.csproj" />
   </ItemGroup>
 
 </Project>

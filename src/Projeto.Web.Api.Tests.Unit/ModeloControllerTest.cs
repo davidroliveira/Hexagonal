@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc.Testing;
 using Newtonsoft.Json;
 using Projeto.Base.Common.Helpers;
-using Projeto.Persistence;
+using Projeto.Persistence.SqlServer.Repositories;
 using System.Net;
 using Xunit;
 

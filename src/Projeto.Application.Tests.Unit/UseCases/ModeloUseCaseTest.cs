@@ -1,7 +1,7 @@
 using Projeto.Application.UseCases.Modelo;
 using Projeto.Base.Common.Helpers;
 using Projeto.Mapper;
-using Projeto.Persistence;
+using Projeto.Persistence.SqlServer.Repositories;
 using Xunit;
 
 namespace Projeto.Application.Tests.Unit.UseCases;

@@ -1,5 +1,5 @@
-﻿using Projeto.Application.Base;
+﻿using Projeto.Application.Contracts;
 
 namespace Projeto.Application.UseCases.Modelo;
 
-public sealed record ModeloRequest : BaseRequest;
+public sealed record ModeloRequest : IRequest;

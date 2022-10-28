@@ -1,5 +1,5 @@
-﻿using Projeto.Application.Base;
+﻿using Projeto.Application.Contracts;
 
 namespace Projeto.Application.UseCases.WeatherForecast;
 
-public sealed record WeatherForecastRequest : BaseRequest;
+public sealed record WeatherForecastRequest : IRequest;
