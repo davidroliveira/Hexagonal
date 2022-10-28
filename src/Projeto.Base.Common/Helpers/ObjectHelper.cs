@@ -1,5 +1,5 @@
-﻿using Newtonsoft.Json;
-using FluentAssertions;
+﻿using FluentAssertions;
+using Newtonsoft.Json;
 
 namespace Projeto.Base.Common.Helpers;
 

@@ -1,6 +1,4 @@
 ﻿using Projeto.Application.UseCases.WeatherForecast;
-using Projeto.Base.Common.Helpers;
-using Projeto.Domain.Repositories;
 using Projeto.Mapper;
 using Projeto.Persistence;
 using Xunit;

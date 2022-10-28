@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc.Testing;
 using Newtonsoft.Json;
+using Projeto.Base.Common.Helpers;
 using Projeto.Persistence;
 using System.Net;
-using Projeto.Base.Common.Helpers;
 using Xunit;
 
 namespace Projeto.Web.Api.Tests.Unit;

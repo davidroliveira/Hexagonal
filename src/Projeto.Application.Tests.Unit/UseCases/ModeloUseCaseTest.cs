@@ -15,7 +15,7 @@ public sealed class ModeloUseCaseTest
         var modeloRepository = new ModeloRepository();
         var expected = await modeloRepository.Listar();
         var useCase = new ModeloUseCase(new MapperConfiguration().CreateMapper(), modeloRepository);
-        
+
         //Act
         var response = await useCase.Execute(new ModeloRequest());
 
