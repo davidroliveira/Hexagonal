@@ -1,4 +1,5 @@
 using Projeto.Application.UseCases.Modelo;
+using Projeto.Base.Common.Helpers;
 using Projeto.Mapper;
 using Projeto.Persistence;
 using Xunit;
@@ -11,12 +12,15 @@ public sealed class ModeloUseCaseTest
     public async Task Execute_SeExecutadoComSucesso_EntaoRetornaResponse()
     {
         //Arrange
-        var useCase = new ModeloUseCase(new MapperConfiguration().CreateMapper(), new ModeloRepository());
-
+        var modeloRepository = new ModeloRepository();
+        var expected = await modeloRepository.Listar();
+        var useCase = new ModeloUseCase(new MapperConfiguration().CreateMapper(), modeloRepository);
+        
         //Act
         var response = await useCase.Execute(new ModeloRequest());
 
         //Assert
-        Assert.NotEmpty(await response.Content);
+        var result = await response.Content;
+        Assert.True(result.Compare(expected));
     }
 }

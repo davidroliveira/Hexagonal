@@ -24,6 +24,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\Projeto.Base.Common\Projeto.Base.Common.csproj" />
 	  <ProjectReference Include="..\Projeto.Web.Api\Projeto.Web.Api.csproj" />
 	</ItemGroup>
 

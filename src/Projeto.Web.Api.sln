@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projeto.Domain", "Projeto.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projeto.Persistence", "Projeto.Persistence\Projeto.Persistence.csproj", "{701566B6-F1A4-4621-BCD5-A3622B10085F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projeto.Mapper", "Projeto.Mapper\Projeto.Mapper.csproj", "{6E66A034-A441-47C5-89F3-32D29398AC53}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projeto.Mapper", "Projeto.Mapper\Projeto.Mapper.csproj", "{6E66A034-A441-47C5-89F3-32D29398AC53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projeto.Base.Common", "Projeto.Base.Common\Projeto.Base.Common.csproj", "{F8FC9FAF-7838-4E34-BC87-AD26AFD3A59C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{6E66A034-A441-47C5-89F3-32D29398AC53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E66A034-A441-47C5-89F3-32D29398AC53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E66A034-A441-47C5-89F3-32D29398AC53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8FC9FAF-7838-4E34-BC87-AD26AFD3A59C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8FC9FAF-7838-4E34-BC87-AD26AFD3A59C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8FC9FAF-7838-4E34-BC87-AD26AFD3A59C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8FC9FAF-7838-4E34-BC87-AD26AFD3A59C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
