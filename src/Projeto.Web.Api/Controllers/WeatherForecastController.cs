@@ -13,6 +13,6 @@ public sealed class WeatherForecastController : ControllerBase
     public async Task<IEnumerable<WeatherForecastModel>> Listar()
     {
         var response = await Handler.Handle<WeatherForecastUseCase>().Execute(new WeatherForecastRequest());
-        return response.Content;
+        return await response.Content;
     }
 }

@@ -1,4 +1,6 @@
 ﻿using Projeto.Application.UseCases.WeatherForecast;
+using Projeto.Mapper;
+using Projeto.Persistence;
 using Xunit;
 
 namespace Projeto.Application.Tests.Unit.UseCases;
@@ -9,12 +11,12 @@ public sealed class WeatherForecastUseCaseTest
     public async Task Execute_SeExecutadoComSucesso_EntaoRetornaResponse()
     {
         //Arrange
-        var useCase = new WeatherForecastUseCase();
+        var useCase = new WeatherForecastUseCase(new MapperConfiguration().CreateMapper(), new WeatherForecastRepository());
 
         //Act
         var response = await useCase.Execute(new WeatherForecastRequest());
 
         //Assert
-        Assert.NotEmpty(response.Content);
+        Assert.NotEmpty(await response.Content);
     }
 }

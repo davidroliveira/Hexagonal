@@ -8,6 +8,7 @@
 
 	<ItemGroup>
 		<InternalsVisibleTo Include="Projeto.Web.Api.Tests.Unit" />
+		<InternalsVisibleTo Include="Projeto.Mapper" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -18,6 +19,7 @@
 	<ItemGroup>
 		<ProjectReference Include="..\Projeto.Application\Projeto.Application.csproj" />
 		<ProjectReference Include="..\Projeto.Main\Projeto.Main.csproj" />
+		<ProjectReference Include="..\Projeto.Mapper\Projeto.Mapper.csproj" />
 	</ItemGroup>
 
 </Project>

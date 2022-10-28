@@ -1,16 +1,20 @@
-﻿using Projeto.Application.Base;
-using Projeto.Domain;
+﻿using AutoMapper;
+using Projeto.Application.Base;
+using Projeto.Application.Models;
+using Projeto.Domain.Repositories;
 
 namespace Projeto.Application.UseCases.Modelo;
 
 public sealed class ModeloUseCase : BaseUseCase<ModeloRequest, ModeloResponse>
 {
-    private readonly IModeloRepository pessoaRepository;
+    private readonly IMapper _mapper;
+    private readonly IModeloRepository _modeloRepository;
 
-    public ModeloUseCase(IModeloRepository pessoaRepository)
+    public ModeloUseCase(IMapper mapper, IModeloRepository modeloRepository)
     {
-        this.pessoaRepository = pessoaRepository;
+        _mapper = mapper;
+        _modeloRepository = modeloRepository;
     }
 
-    public override Task<ModeloResponse> Execute(ModeloRequest request) => Task.FromResult(new ModeloResponse("Teste 123"));
+    public override Task<ModeloResponse> Execute(ModeloRequest request) => Task.FromResult(new ModeloResponse(Task.FromResult(_modeloRepository.Listar().GetAwaiter().GetResult().Select(domain => _mapper.Map<ModeloModel>(domain)))));
 }

@@ -1,4 +1,5 @@
 using Projeto.Main;
+using Projeto.Mapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +10,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddHandlers();
+builder.Services.AddMapperConfig();
+
+builder.Services.AddHandlerConfig();
 
 var app = builder.Build();
 

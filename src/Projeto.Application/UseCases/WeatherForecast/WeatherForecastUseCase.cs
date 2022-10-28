@@ -1,19 +1,20 @@
-﻿using Projeto.Application.Base;
+﻿using AutoMapper;
+using Projeto.Application.Base;
 using Projeto.Application.Models;
+using Projeto.Domain.Repositories;
 
 namespace Projeto.Application.UseCases.WeatherForecast;
 
 public sealed class WeatherForecastUseCase : BaseUseCase<WeatherForecastRequest, WeatherForecastResponse>
 {
-    private static readonly string[] Summaries = new[] { "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching" };
+    private readonly IMapper _mapper;
+    private readonly IWeatherForecastRepository _weatherForecastRepository;
 
-    public override Task<WeatherForecastResponse> Execute(WeatherForecastRequest request)
+    public WeatherForecastUseCase(IMapper mapper, IWeatherForecastRepository weatherForecastRepository)
     {
-        return Task.FromResult(new WeatherForecastResponse(Enumerable.Range(1, 5).Select(index => new WeatherForecastModel()
-        {
-            Date = DateTime.Now.AddDays(index),
-            TemperatureC = Random.Shared.Next(-20, 55),
-            Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-        })));
+        _mapper = mapper;
+        _weatherForecastRepository = weatherForecastRepository;
     }
+
+    public override Task<WeatherForecastResponse> Execute(WeatherForecastRequest request) => Task.FromResult(new WeatherForecastResponse(Task.FromResult(_weatherForecastRepository.Listar().GetAwaiter().GetResult().Select(domain => _mapper.Map<WeatherForecastModel>(domain)))));
 }

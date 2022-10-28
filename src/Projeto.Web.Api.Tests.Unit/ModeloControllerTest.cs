@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc.Testing;
+using Newtonsoft.Json;
 using System.Net;
 using Xunit;
 
@@ -19,6 +20,8 @@ public sealed class ModeloControllerTest
 
         //Assert
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-        Assert.Equal("Teste 123", await response.Content.ReadAsStringAsync());
+
+        var lista = JsonConvert.DeserializeObject<IEnumerable<object>>(await response.Content.ReadAsStringAsync())!;
+        Assert.NotEmpty(lista);
     }
 }
