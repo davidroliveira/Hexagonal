@@ -7,8 +7,9 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<InternalsVisibleTo Include="Projeto.Web.Api.Tests.Unit" />
 		<InternalsVisibleTo Include="Projeto.Mapper" />
+		<InternalsVisibleTo Include="Projeto.Web.Api.Tests.Unit" />
+		<InternalsVisibleTo Include="Projeto.Application.Tests.Unit" />
 	</ItemGroup>
 
 	<ItemGroup>

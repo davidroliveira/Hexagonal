@@ -4,8 +4,6 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-
-    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
 	<ItemGroup>
@@ -25,12 +23,8 @@
 		</PackageReference>
 	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Projeto.Application\Projeto.Application.csproj" />
-    <ProjectReference Include="..\Projeto.Base.Common\Projeto.Base.Common.csproj" />
-    <ProjectReference Include="..\Projeto.Base.Tests.Support\Projeto.Base.Tests.Support.csproj" />
-    <ProjectReference Include="..\Projeto.Mapper\Projeto.Mapper.csproj" />
-    <ProjectReference Include="..\Projeto.Web.Api\Projeto.Web.Api.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\Projeto.Web.Api\Projeto.Web.Api.csproj" />
+	</ItemGroup>
 
 </Project>

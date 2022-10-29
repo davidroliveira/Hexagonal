@@ -2,7 +2,7 @@
 
 namespace Projeto.Main;
 
-public abstract class Handler
+public static class Handler
 {
     public static IServiceProvider CurrentProvider { private get; set; } = null!;
 

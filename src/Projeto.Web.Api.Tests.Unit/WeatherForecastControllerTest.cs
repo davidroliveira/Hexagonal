@@ -1,17 +1,28 @@
-﻿using Microsoft.AspNetCore.Mvc.Testing;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
+using Projeto.Application.Models;
+using Projeto.Base.Common.Helpers;
+using Projeto.Base.Tests.Support;
+using Projeto.Domain.Repositories;
+using Projeto.Mapper;
 using System.Net;
 using Xunit;
 
 namespace Projeto.Web.Api.Tests.Unit;
 
-public sealed class WeatherForecastControllerTest
+public sealed class WeatherForecastControllerTest : BaseTest
 {
     [Fact]
     public async Task Get_SeListarExecutadaComSucesso_EntaoRetornaStatus200()
     {
         //Arrange
-        await using var apiFactory = new WebApplicationFactory<Program>();
+        await using var app = new TestWebApplicationFactory<Program>();
+        using var scope = app.Server.Services.CreateScope();
+        var repository = scope.ServiceProvider.GetRequiredService<IWeatherForecastRepository>();
+
+        var mapper = new MapperConfiguration().CreateMapper();
+        var expected = mapper.Map<IEnumerable<WeatherForecastModel>>(await repository.Listar());
+        await using var apiFactory = new TestWebApplicationFactory<Program>();
 
         using var client = apiFactory.CreateClient();
 
@@ -21,7 +32,7 @@ public sealed class WeatherForecastControllerTest
         //Assert
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
-        var lista = JsonConvert.DeserializeObject<IEnumerable<object>>(await response.Content.ReadAsStringAsync())!;
-        Assert.NotEmpty(lista);
+        var result = JsonConvert.DeserializeObject<IEnumerable<object>>(await response.Content.ReadAsStringAsync())!;
+        Assert.True(result.Compare(expected));
     }
 }

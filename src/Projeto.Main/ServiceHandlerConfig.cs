@@ -11,13 +11,25 @@ public static class ServiceHandlerConfig
 {
     public static IServiceCollection AddHandlerConfig(this IServiceCollection services)
     {
-        services.AddScoped<IDbSession, DbSession>();
-        services.AddTransient<IUnitOfWork, UnitOfWork>();
+        Handler.CurrentProvider = services
+            .AddScoped<IDbSettings, DbSettings>()
+            .AddScoped<IDbSession, DbSession>()
+            .AddTransient<IUnitOfWork, UnitOfWork>()
+            .AddUseCases()
+            .AddRepositories()
+            .BuildServiceProvider();
+        return services;
+    }
 
+    private static IServiceCollection AddUseCases(this IServiceCollection services)
+    {
         RegisterUseCases(services);
-        RegisterRepositories(services);
+        return services;
+    }
 
-        Handler.CurrentProvider = services.BuildServiceProvider();
+    private static IServiceCollection AddRepositories(this IServiceCollection services)
+    {
+        RegisterRepositories(services);
         return services;
     }
 
