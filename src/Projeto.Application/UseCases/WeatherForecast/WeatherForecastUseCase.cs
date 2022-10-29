@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Projeto.Application.Contracts;
 using Projeto.Application.Models;
-using Projeto.Domain.Domains;
 using Projeto.Domain.Repositories;
 
 namespace Projeto.Application.UseCases.WeatherForecast;
@@ -19,5 +18,5 @@ public sealed class WeatherForecastUseCase : IUseCase<WeatherForecastRequest, We
 
     public async Task<WeatherForecastResponse> Execute(WeatherForecastRequest request) => await Task.FromResult(
         new WeatherForecastResponse(Task.FromResult(
-            _mapper.Map<IEnumerable<WeatherForecastDomain>, IEnumerable<WeatherForecastModel>>(await _weatherForecastRepository.Listar()))));
+            _mapper.Map<IEnumerable<WeatherForecastModel>>(await _weatherForecastRepository.Listar()))));
 }

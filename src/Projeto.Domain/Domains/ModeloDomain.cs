@@ -12,5 +12,4 @@ public sealed class ModeloDomain : BaseDomain
 
     public long Codigo { get; }
     public string Nome { get; }
-
 }

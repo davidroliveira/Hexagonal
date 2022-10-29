@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Projeto.Application.Contracts;
+using Projeto.Domain.Connection;
+using Projeto.Persistence.SqlServer.Connection;
 using Projeto.Persistence.SqlServer.Repositories;
 using System.Reflection;
 
@@ -9,8 +11,12 @@ public static class ServiceHandlerConfig
 {
     public static IServiceCollection AddHandlerConfig(this IServiceCollection services)
     {
+        services.AddScoped<IDbSession, DbSession>();
+        services.AddTransient<IUnitOfWork, UnitOfWork>();
+
         RegisterUseCases(services);
         RegisterRepositories(services);
+
         Handler.CurrentProvider = services.BuildServiceProvider();
         return services;
     }

@@ -20,7 +20,7 @@ public sealed class ModeloControllerTest
         using var client = apiFactory.CreateClient();
 
         //Act
-        var response = await client.GetAsync("/Modelo/Teste");
+        var response = await client.GetAsync("/Modelo/Listar");
 
         //Assert
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);

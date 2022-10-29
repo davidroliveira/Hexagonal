@@ -9,6 +9,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="FluentAssertions.Json" Version="6.1.0" />
+		<PackageReference Include="Meziantou.Xunit.ParallelTestFramework" Version="2.0.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="6.0.10" />
 		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.2" />

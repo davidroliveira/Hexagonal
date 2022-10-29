@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Projeto.Application.Contracts;
 using Projeto.Application.Models;
-using Projeto.Domain.Domains;
 using Projeto.Domain.Repositories;
 
 namespace Projeto.Application.UseCases.Modelo;
@@ -19,5 +18,5 @@ public sealed class ModeloUseCase : IUseCase<ModeloRequest, ModeloResponse>
 
     public async Task<ModeloResponse> Execute(ModeloRequest request) => await Task.FromResult(
         new ModeloResponse(Task.FromResult(
-            _mapper.Map<IEnumerable<ModeloDomain>, IEnumerable<ModeloModel>>(await _modeloRepository.Listar()))));
+            _mapper.Map<IEnumerable<ModeloModel>>(await _modeloRepository.Listar()))));
 }

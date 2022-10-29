@@ -10,7 +10,7 @@ namespace Projeto.Web.Api.Controllers;
 public sealed class ModeloController : ControllerBase
 {
     [HttpGet]
-    public async Task<IEnumerable<ModeloModel>> Teste()
+    public async Task<IEnumerable<ModeloModel>> Listar()
     {
         var response = await Handler.Handle<ModeloUseCase>().Execute(new ModeloRequest());
         return await response.Content;
