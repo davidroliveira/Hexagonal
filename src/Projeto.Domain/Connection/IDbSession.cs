@@ -2,11 +2,9 @@
 
 namespace Projeto.Domain.Connection;
 
-public interface IDbSession
+public interface IDbSession : IDisposable
 {
-    long SessionId { get; }
-    Guid ConnectionId { get; }
-    IDbConnection? Connection { get; }
-    IDbTransaction? Transaction { get; set; }
+    IDbConnection Connection { get; }
+    IDbTransaction Transaction { get; set; }
 
 }

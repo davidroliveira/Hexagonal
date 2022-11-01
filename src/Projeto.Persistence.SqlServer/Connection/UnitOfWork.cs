@@ -8,19 +8,19 @@ public sealed class UnitOfWork : IUnitOfWork
 
     public UnitOfWork(IDbSession session) => _session = session;
 
-    public void BeginTransaction() => _session.Transaction = _session.Connection?.BeginTransaction();
+    public void BeginTransaction() => _session.Transaction = _session.Connection.BeginTransaction();
 
     public void CommitTransaction()
     {
-        _session.Transaction?.Commit();
+        _session.Transaction.Commit();
         Dispose();
     }
 
     public void RollbackTransaction()
     {
-        _session.Transaction?.Rollback();
+        _session.Transaction.Rollback();
         Dispose();
     }
 
-    public void Dispose() => _session.Transaction?.Dispose();
+    public void Dispose() => _session.Transaction.Dispose();
 }

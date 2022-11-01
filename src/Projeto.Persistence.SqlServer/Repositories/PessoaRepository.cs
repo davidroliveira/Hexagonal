@@ -11,11 +11,12 @@ public sealed class PessoaRepository : BaseRepository, IPessoaRepository
 
     public PessoaRepository(IDbSession session) => _session = session;
 
-    public Task<IEnumerable<PessoaDomain>> Listar() => _session.Connection.QueryAsync<PessoaDomain>(
-        @"select codigo_local_pessoa codigoLocalPessoa, 
-                     codigo_universal_pessoa codigoUniversalPessoa, 
-                     nome_pessoa nomePessoa
-                from PESSOA",
+    public Task<IEnumerable<PessoaDomain>> Listar() => _session.Connection.QueryAsync<PessoaDomain>(@"
+                 set transaction isolation level read uncommitted; 
+              select codigo_local codigoLocal, 
+                     codigo_universal codigoUniversal, 
+                     nome Nome
+                from pessoas",
         null,
         _session.Transaction);
 }

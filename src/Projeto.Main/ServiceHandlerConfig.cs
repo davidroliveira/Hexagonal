@@ -15,6 +15,7 @@ public static class ServiceHandlerConfig
             .AddScoped<IDbSettings, DbSettings>()
             .AddScoped<IDbSession, DbSession>()
             .AddTransient<IUnitOfWork, UnitOfWork>()
+            .AddTransient<IDbChangeset, DbChangeset>()
             .AddUseCases()
             .AddRepositories()
             .BuildServiceProvider();

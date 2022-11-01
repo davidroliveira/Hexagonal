@@ -1,4 +1,5 @@
-﻿using Projeto.Domain.Connection;
+﻿using Microsoft.Extensions.Configuration;
+using Projeto.Domain.Connection;
 using System.Data.SqlClient;
 
 namespace Projeto.Persistence.SqlServer.Connection;
@@ -7,10 +8,10 @@ public sealed class DbSettingsFromTest : IDbSettings
 {
     public string ConnectionString { get; }
 
-    public DbSettingsFromTest()
+    public DbSettingsFromTest(IConfiguration configuration)
     {
-        var sqlConnectionStringBuilder = new SqlConnectionStringBuilder(new DbSettings().ConnectionString);
-        //todo: Ajustar Banco de Dados de Testes : sqlConnectionStringBuilder.InitialCatalog += "-Test";
-        ConnectionString = sqlConnectionStringBuilder.ToString();
+        var connectionStringBuilder = new SqlConnectionStringBuilder(new DbSettings(configuration).ConnectionString);
+        connectionStringBuilder.InitialCatalog += "-Test";
+        ConnectionString = connectionStringBuilder.ToString();
     }
 }

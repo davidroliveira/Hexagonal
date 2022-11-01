@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Projeto.Domain.Connection;
+using Projeto.Main;
 using Projeto.Persistence.SqlServer.Connection;
 
 namespace Projeto.Base.Tests.Support;
@@ -14,6 +15,7 @@ public sealed class TestWebApplicationFactory<TEntryPoint> : WebApplicationFacto
         builder.ConfigureServices(services =>
         {
             services.AddScoped<IDbSettings, DbSettingsFromTest>();
+            Handler.CurrentProvider = services.BuildServiceProvider();
         });
 
         return base.CreateHost(builder);

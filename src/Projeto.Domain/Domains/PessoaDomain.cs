@@ -3,16 +3,16 @@
 public sealed class PessoaDomain : BaseDomain
 {
     public PessoaDomain(
-        long? codigoLocalPessoa,
-        Guid codigoUniversalPessoa,
-        string nomePessoa)
+        long? codigoLocal,
+        Guid codigoUniversal,
+        string nome)
     {
-        CodigoLocalPessoa = codigoLocalPessoa;
-        CodigoUniversalPessoa = codigoUniversalPessoa;
-        NomePessoa = nomePessoa;
+        CodigoLocal = codigoLocal;
+        CodigoUniversal = codigoUniversal;
+        Nome = nome;
     }
 
-    public long? CodigoLocalPessoa { get; }
-    public Guid CodigoUniversalPessoa { get; }
-    public string NomePessoa { get; }
+    public long? CodigoLocal { get; }
+    public Guid CodigoUniversal { get; }
+    public string Nome { get; }
 }

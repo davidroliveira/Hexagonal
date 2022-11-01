@@ -1,5 +1,6 @@
 using Projeto.Main;
 using Projeto.Mapper;
+using Projeto.Web.Api.Configurations.WebApplication;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,8 @@ builder.Services.AddMapperConfig();
 builder.Services.AddHandlerConfig();
 
 var app = builder.Build();
+
+app.AddChangesets();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
