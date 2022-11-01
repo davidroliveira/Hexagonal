@@ -8,9 +8,7 @@ begin
       constraint pk_pessoas primary key (codigo_local),
       constraint uk_pessoas_codigo_universal unique (codigo_universal)
   )
-  go
 
   create index ix_pessoas_nome on pessoas (nome)
 
-  go
 end
