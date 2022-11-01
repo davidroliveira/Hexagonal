@@ -12,16 +12,33 @@ public sealed class DbChangeset : IDbChangeset
 {
     private readonly IDbConnection _connection;
     private readonly Dictionary<(string, string), long> _cacheChangeSets = new();
+    private string _databaseOriginal = string.Empty;
+    private SqlConnectionStringBuilder _builder = null!;
 
     public DbChangeset(IDbSettings settings) => _connection = new SqlConnection(settings.ConnectionString);
 
+    private void SetDatabaseEmpty()
+    {
+        _builder = new SqlConnectionStringBuilder(_connection.ConnectionString);
+        _databaseOriginal = _connection.Database;
+        _builder.InitialCatalog = string.Empty;
+        _connection.ConnectionString = _builder.ToString();
+    }
+
+    private void SetDatabaseOriginal()
+    {
+        _builder.InitialCatalog = _databaseOriginal;
+        _connection.ConnectionString = _builder.ToString();
+    }
+
     public void Apply()
     {
-        _cacheChangeSets.Clear();
+        SetDatabaseEmpty();
 
         if (!ExistsDatabase())
             CreateDatabase();
 
+        SetDatabaseOriginal();
         ApplyChangesetsDatabase();
     }
 
@@ -99,6 +116,7 @@ public sealed class DbChangeset : IDbChangeset
     private void ApplyChangesetsDatabase()
     {
         Console.WriteLine($"{DateTime.Now:yyyy-MM-dd HH:mm:ss:ffff} start ApplyChangesetsDatabase");
+        _cacheChangeSets.Clear();
 
         var assemblyPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!;
         var filePathRelativeToAssembly = $"{assemblyPath}\\Changesets";
@@ -131,40 +149,21 @@ public sealed class DbChangeset : IDbChangeset
 
     private bool ExistsDatabase()
     {
-        var builder = new SqlConnectionStringBuilder(_connection.ConnectionString);
-        var initialCatalogOriginal = _connection.Database;
-        builder.InitialCatalog = string.Empty;
-
-        _connection.ConnectionString = builder.ToString();
         var result = _connection.QuerySingle<long>(@"
           select count(1) 
             from sys.databases 
            where name = @database_name",
-            new Dictionary<string, object> { { "@database_name", initialCatalogOriginal } });
-
-        builder.InitialCatalog = initialCatalogOriginal;
-        _connection.ConnectionString = builder.ToString();
-
+            new Dictionary<string, object> { { "@database_name", _databaseOriginal } });
         return result > 0;
     }
 
     private void CreateDatabase()
     {
-        var initialCatalogOriginal = _connection.Database;
-        var connectionStringBuilder = new SqlConnectionStringBuilder(_connection.ConnectionString)
-        {
-            InitialCatalog = string.Empty
-        };
-
-        _connection.ConnectionString = connectionStringBuilder.ToString();
         _connection.Execute(@$"
-            if not exists(select 1 from sys.databases where name = '{initialCatalogOriginal}')
+            if not exists(select 1 from sys.databases where name = '{_databaseOriginal}')
             begin
-              create database [{initialCatalogOriginal}]
+              create database [{_databaseOriginal}]
             end");
-
-        connectionStringBuilder.InitialCatalog = initialCatalogOriginal;
-        _connection.ConnectionString = connectionStringBuilder.ToString();
     }
 
     public void Dispose() => _connection.Dispose();
