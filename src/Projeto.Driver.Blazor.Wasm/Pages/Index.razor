@@ -1,0 +1,40 @@
+﻿@page "/"
+<h1>Lista de Tarefas</h1>
+
+<div>
+    <div>
+        <input placeholder="Nova Tarefa" @bind="_newTodo"/>
+        <button @onclick="AddNewTask">+</button>
+    </div>
+</div>
+
+<ul>
+    @foreach (var item in _todos)
+    {
+        <li>
+            <label>
+                <input type="checkbox" @bind="item.IsDone" />@item.Title
+            </label>
+        </li>
+    }
+</ul>
+
+@code
+{
+    public class TodoItem
+    {
+        public string Title { get; set; } = string.Empty;
+        public bool IsDone { get; set; }
+    }
+
+    private string _newTodo = string.Empty;
+    private readonly List<TodoItem> _todos = new();
+
+    void AddNewTask()
+    {
+        if (string.IsNullOrWhiteSpace(_newTodo))
+            return;
+        _todos.Add(new TodoItem() { Title = _newTodo });
+        _newTodo = string.Empty;
+    }
+}
