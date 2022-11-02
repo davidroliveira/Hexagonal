@@ -12,7 +12,7 @@ public sealed class DbChangeset : IDbChangeset
 {
     private readonly IDbConnection _connection;
     private readonly Dictionary<(string, string), long> _cacheChangeSets = new();
-    private string _databaseOriginal = string.Empty;
+    private string _databaseOriginal = null!;
     private SqlConnectionStringBuilder _builder = null!;
 
     public DbChangeset(IDbSettings settings) => _connection = new SqlConnection(settings.ConnectionString);

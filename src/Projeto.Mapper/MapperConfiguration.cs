@@ -12,6 +12,7 @@ public sealed class MapperConfiguration
         {
             configure.AddProfile(new MappingProfile());
         });
+        _mapperConfiguration.AssertConfigurationIsValid();
     }
 
     public IMapper CreateMapper() => _mapperConfiguration.CreateMapper();
