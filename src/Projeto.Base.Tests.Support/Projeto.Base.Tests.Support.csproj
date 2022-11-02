@@ -24,7 +24,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Projeto.Web.Api\Projeto.Web.Api.csproj" />
+	  <ProjectReference Include="..\Projeto.Driver.Web.Api\Projeto.Driver.Web.Api.csproj" />
 	</ItemGroup>
 
 </Project>

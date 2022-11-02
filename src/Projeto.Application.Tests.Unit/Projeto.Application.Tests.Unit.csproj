@@ -30,7 +30,7 @@
     <ProjectReference Include="..\Projeto.Base.Common\Projeto.Base.Common.csproj" />
     <ProjectReference Include="..\Projeto.Base.Tests.Support\Projeto.Base.Tests.Support.csproj" />
     <ProjectReference Include="..\Projeto.Mapper\Projeto.Mapper.csproj" />
-    <ProjectReference Include="..\Projeto.Web.Api\Projeto.Web.Api.csproj" />
+    <ProjectReference Include="..\Projeto.Driver.Web.Api\Projeto.Driver.Web.Api.csproj" />
   </ItemGroup>
 
 </Project>
