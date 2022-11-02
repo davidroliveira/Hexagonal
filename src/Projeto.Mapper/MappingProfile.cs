@@ -32,9 +32,7 @@ public sealed class MappingProfile : Profile
             var typeModel = _listModel.FirstOrDefault(type => type.Name.Equals(nameModel));
 
             if (typeModel is not null)
-            {
                 CreateMap(typeDomain, typeModel).ReverseMap();
-            }
         });
     }
 }
