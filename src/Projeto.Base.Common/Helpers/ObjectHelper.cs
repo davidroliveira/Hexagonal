@@ -30,4 +30,10 @@ public static class ObjectHelper
         var result = JsonConvert.SerializeObject(self, serializerSettings);
         return result;
     }
+
+    public static T? Clone<T>(this object self)
+    {
+        var serialized = JsonConvert.SerializeObject(self);
+        return JsonConvert.DeserializeObject<T>(serialized);
+    }
 }
