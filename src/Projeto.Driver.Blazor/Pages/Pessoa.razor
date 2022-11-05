@@ -1,0 +1,67 @@
+﻿@page "/pessoa"
+@inject HttpClient Http
+@inject IJSRuntime JsRuntime
+
+<PageTitle>Pessoa</PageTitle>
+
+<h1>Pessoas</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+@if (_listaPessoas == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nome</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pessoa in _listaPessoas)
+            {
+                <tr>
+                    <td>@pessoa.CodigoUniversal.GetValueOrDefault().ToString("D")</td>
+                    <td>@pessoa.Nome</td>
+                    <td>
+                        <div align="right">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" @onclick="@(_ => EditarOnClick(pessoa))">Alterar</button>
+                            <button type="button" class="btn btn-danger" @onclick="@(_ => ExcluirOnClick(pessoa))">Excluir</button>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="edtCodigo" class="form-label">Código</label>
+                    <input type="text" class="form-control" id="edtCodigo" placeholder="{00000000-0000-0000-0000-000000000000}" @bind="_pessoaSelecionada.CodigoUniversal" disabled readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="edtNome" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="edtNome" placeholder="Fulano de Tal" @bind="_pessoaSelecionada.Nome">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" @onclick="@(_ => SaveOnClick())">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

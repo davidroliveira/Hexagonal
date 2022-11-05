@@ -1,6 +1,6 @@
+using Projeto.Driver.Web.Api.Configurations.WebApplication;
 using Projeto.Main;
 using Projeto.Mapper;
-using Projeto.Driver.Web.Api.Configurations.WebApplication;
 
 var builder = WebApplication.CreateBuilder(args);
 

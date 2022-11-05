@@ -1,3 +1,7 @@
 namespace Projeto.Application.Models;
 
-public sealed record ModeloModel(long Codigo, string Nome) : BaseModel;
+public sealed class ModeloModel : BaseModel
+{
+    public long Codigo { get; set; }
+    public string Nome { get; set; } = string.Empty;
+}

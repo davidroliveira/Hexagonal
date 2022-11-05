@@ -45,6 +45,7 @@ public sealed class DbChangeset : IDbChangeset
     private bool ExistsTableChangesets()
     {
         var result = _connection.QuerySingle<long>(@"
+             set transaction isolation level read uncommitted; 
           select count(1) 
             from information_schema.tables 
            where table_name = @table_name
@@ -60,6 +61,7 @@ public sealed class DbChangeset : IDbChangeset
     private void FillCacheChangeSets()
     {
         var retorno = _connection.Query<(long codigoLocal, string checksum, string fileName)>(@"
+             set transaction isolation level read uncommitted; 
           select codigo_local codigoLocal,
                  checksum Checksum, 
                  file_name fileName
@@ -150,6 +152,7 @@ public sealed class DbChangeset : IDbChangeset
     private bool ExistsDatabase()
     {
         var result = _connection.QuerySingle<long>(@"
+             set transaction isolation level read uncommitted; 
           select count(1) 
             from sys.databases 
            where name = @database_name",

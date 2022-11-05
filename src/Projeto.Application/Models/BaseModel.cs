@@ -1,3 +1,3 @@
 ﻿namespace Projeto.Application.Models;
 
-public abstract record BaseModel;
+public abstract class BaseModel { }

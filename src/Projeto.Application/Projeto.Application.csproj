@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <Folder Include="Contracts\" />
+    <Folder Include="UseCases\Pessoa\GravarPessoa\" />
+    <Folder Include="UseCases\Pessoa\ExcluirPessoa\" />
   </ItemGroup>
 
   <ItemGroup>

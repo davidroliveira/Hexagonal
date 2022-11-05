@@ -14,12 +14,11 @@ public sealed class ModeloControllerTest : BaseTest
     public async Task Get_SeTesteExecutadoComSucesso_EntaoRetornaStatus200()
     {
         //Arrange
-        await using var app = new TestWebApplicationFactory<Program>();
-        using var scope = app.Server.Services.CreateScope();
+        await using var apiFactory = new TestWebApplicationFactory<Program>();
+        using var scope = apiFactory.Server.Services.CreateScope();
         var repository = scope.ServiceProvider.GetRequiredService<IModeloRepository>();
 
         var expected = await repository.Listar();
-        await using var apiFactory = new TestWebApplicationFactory<Program>();
 
         using var client = apiFactory.CreateClient();
 
