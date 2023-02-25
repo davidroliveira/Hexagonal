@@ -7,7 +7,7 @@ public sealed class DatabaseFixture
 {
     public static DatabaseFixture FromEnvironmentOrDefault()
     {
-        var connectionString = Environment.GetEnvironmentVariable(Constantes.ENVIRONMENT_VARIABLE) ?? new SqlConnectionStringBuilder
+        var connectionString = new SqlConnectionStringBuilder
         {
             DataSource = "localhost,1433",
             UserID = "sa",
