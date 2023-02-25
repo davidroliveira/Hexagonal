@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\ProjetoHexagonal.Application\ProjetoHexagonal.Application.csproj" />
+	  <ProjectReference Include="..\ProjetoHexagonal.Commons.Persistence\ProjetoHexagonal.Commons.Persistence.csproj" />
+	  <ProjectReference Include="..\ProjetoHexagonal.Domain\ProjetoHexagonal.Domain.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Repositories\" />
+	</ItemGroup>
+
+</Project>

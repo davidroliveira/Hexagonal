@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Bogus" Version="34.0.2" />
+      <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+    </ItemGroup>
+   
+    <ItemGroup>
+      <ProjectReference Include="..\ProjetoHexagonal.Application\ProjetoHexagonal.Application.csproj" />
+      <ProjectReference Include="..\ProjetoHexagonal.Persistence\ProjetoHexagonal.Persistence.csproj" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <Folder Include="Infrastructure\" />
+    </ItemGroup>
+
+</Project>
