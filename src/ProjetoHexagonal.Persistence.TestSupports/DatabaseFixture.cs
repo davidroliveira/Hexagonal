@@ -21,7 +21,7 @@ public sealed class DatabaseFixture
     {
         Database = new SqlServerDatabase(new SqlConnectionStringBuilder(connectionString)
         {
-            InitialCatalog = $"PROJETO-{Guid.NewGuid():N}",
+            InitialCatalog = $"PROJETO_HEXAGONAL-{Guid.NewGuid():N}",
         }.ToString());
     }
 
