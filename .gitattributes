@@ -1,0 +1,4 @@
+*       text   eol=lf
+*.dll   binary
+*.sln   text   eol=crlf
+tool/** binary

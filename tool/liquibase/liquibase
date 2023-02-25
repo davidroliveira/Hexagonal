@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+base_dir=$(dirname ${0})
+
+classpath=${base_dir}/liquibase.jar
+
+for jar_file in ${base_dir}/lib/*.jar
+do
+    classpath=${classpath}:${jar_file}
+done
+
+echo ${classpath}
+
+${base_dir}/jre/bin/java -cp ${classpath} liquibase.integration.commandline.LiquibaseCommandLine ${1+$@}
